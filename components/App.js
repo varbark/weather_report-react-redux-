@@ -7,7 +7,9 @@ export default function App({ children }) {
       <header>
         Links:
         {' '}
-        <Link to="/2306181" onClick={onGetWeather}>台中市</Link>
+        <Link to="/" >台北市</Link>
+        {' '}
+        <Link to="/2306181" >台中市</Link>
       </header>
       <hr/>
       <div style={{ marginTop: '1.5em' }}>{children}</div>

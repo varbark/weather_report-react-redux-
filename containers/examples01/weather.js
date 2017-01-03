@@ -11,12 +11,10 @@ class Weather extends Component{
     this.props.onGetWeather()
   }
 
-  componentWillReceiveProps() {
-    console.log('componentWillReceiveProps')
-  }
-
-  componentDidUpdate() {
-    console.log('componentDidUpdate')
+  componentDidUpdate(prevProps) {
+    if(prevProps.city_code != this.props.city_code){
+      this.props.onGetWeather()
+    }
   }
          
             
@@ -59,5 +57,7 @@ export default connect(
   (state, ownProps) =>( {
     info: state.examples.weather
   }),
-  mapDispatchToProps
+   (dispatch, ownProps) => ({
+    onGetWeather: () => getWeather(dispatch, ownProps)
+  })
 )(Weather)
